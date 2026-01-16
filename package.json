@@ -3,13 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "bin": {
-    "init-starter": "./bin/init-starter"
+    "sriket": "./bin/init-starter.mjs"
   },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check": "npx ultracite check",
+    "fix": "npx ultracite fix"
   },
   "dependencies": {
     "@base-ui/react": "^1.0.0",

@@ -17,7 +17,7 @@ npm install -g .
 Or use it directly with npx (if published to npm):
 
 ```bash
-npx github:your-username/Portfolio-Starter init-starter <project-name>
+npx github:your-username/Portfolio-Starter sriket <project-name>
 ```
 
 ### Usage
@@ -25,10 +25,11 @@ npx github:your-username/Portfolio-Starter init-starter <project-name>
 Create a new project from this starter:
 
 ```bash
-init-starter my-new-portfolio
+sriket my-new-portfolio
 ```
 
 This will:
+
 - Copy all files from the starter (excluding `.git` directory)
 - Initialize a fresh git repository
 - Create an initial commit
@@ -38,10 +39,10 @@ This will:
 
 ```bash
 # Specify a custom destination directory
-init-starter my-new-portfolio --dir /path/to/destination
+sriket my-new-portfolio --dir /path/to/destination
 
 # Or use the short form
-init-starter my-new-portfolio -d /path/to/destination
+sriket my-new-portfolio -d /path/to/destination
 ```
 
 ### After Initialization

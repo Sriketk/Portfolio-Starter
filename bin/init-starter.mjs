@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 const STARTER_DIR = path.resolve(__dirname, '..');
 
 program
-  .name('init-starter')
+  .name('sriket')
   .description('Initialize a new project from the Portfolio Starter template')
   .argument('<project-name>', 'Name of the new project')
   .option('-d, --dir <directory>', 'Destination directory (defaults to current directory)')
@@ -56,11 +56,23 @@ program
         }
       }
 
-      // Update package.json with new project name
+      // Update package.json with new project name and remove CLI-only dependencies
       const packageJsonPath = path.join(destDir, 'package.json');
       if (await fs.pathExists(packageJsonPath)) {
         const packageJson = await fs.readJson(packageJsonPath);
         packageJson.name = projectName;
+        
+        // Remove CLI-only dependencies (not needed in new projects)
+        const cliDependencies = ['chalk', 'commander', 'fs-extra', 'simple-git', 'inquirer'];
+        if (packageJson.dependencies) {
+          cliDependencies.forEach(dep => {
+            delete packageJson.dependencies[dep];
+          });
+        }
+        
+        // Remove bin field (CLI tool is only for the starter repo)
+        delete packageJson.bin;
+        
         await fs.writeJson(packageJsonPath, packageJson, { spaces: 2 });
       }
 
